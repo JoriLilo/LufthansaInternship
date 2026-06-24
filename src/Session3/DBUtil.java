@@ -9,7 +9,7 @@ public class DBUtil {
 
     static String url = "jdbc:mysql://localhost:3306/javaDB";
     static String user = "root";
-    static String password = "Root123.";
+    static String password = "";
 
 
     public static Connection getConnection() throws SQLException {
