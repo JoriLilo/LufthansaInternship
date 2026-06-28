@@ -1,4 +1,4 @@
-package Session3;
+package LufthansaJava.Session3;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

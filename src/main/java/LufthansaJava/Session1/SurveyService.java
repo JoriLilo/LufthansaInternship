@@ -1,4 +1,4 @@
-package Session1;
+package LufthansaJava.Session1;
 
 import java.util.*;
 import java.util.stream.Collectors;

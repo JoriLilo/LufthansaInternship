@@ -1,4 +1,4 @@
-package Session1;
+package LufthansaJava.Session1;
 
 public class Main {
     public static void main(String[] args) {
