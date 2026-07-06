@@ -191,7 +191,7 @@ public class AppService {
         Flight flight = em.find(Flight.class, id);
         if (flight == null) throw new RuntimeException("Flight not found: " + id);
 
-        // Detach from all bookings that reference this flight before removing
+
         for (Booking booking : flight.getBookings()) {
             booking.getFlights().remove(flight);
         }
