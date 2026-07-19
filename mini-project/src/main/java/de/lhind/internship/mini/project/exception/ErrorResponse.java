@@ -5,11 +5,14 @@ import lombok.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
+
+
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class ErrorResponse {
 
     private LocalDateTime timestamp;
