@@ -1,5 +1,6 @@
 package com.example.springbasics;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
@@ -9,10 +10,9 @@ import org.springframework.stereotype.Service;
 public class EmailNotificationsService implements NotificationService{
 
     @Override
-
     @Value("${notification.prefix}")
     public void send(String message) {
-        System.out.println(message);
+        System.out.println("Sending email : " + message);
 
     }
 }
