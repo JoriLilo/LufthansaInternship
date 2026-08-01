@@ -1,14 +1,40 @@
 package com.example.LibraryManagementSys;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.LibraryManagementSys.service.BookService;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api/books")
+@AllArgsConstructor
 public class BookController {
 
-    @RequestMapping(value = "/custom", method = RequestMethod.GET)
-    public String custom() {
-        return "custom";
+    private final BookService bookService;
+
+    @PostMapping("/add")
+    public String addBook(@RequestParam String title, @RequestParam String isbn) {
+        return bookService.addBook(title, isbn);
+    }
+
+    @PostMapping("/borrow")
+    public String borrowBook(@RequestParam String title, @RequestParam String isbn) {
+        return bookService.borrowBook(title, isbn);
+    }
+
+    @PostMapping("/return")
+    public String returnBook(@RequestParam String title, @RequestParam String isbn) {
+        return bookService.returnBook(title, isbn);
+    }
+
+
+    @GetMapping("/search/{isbn}")
+    public String searchBook(@PathVariable String isbn) {
+        return bookService.searchBook(isbn);
+    }
+
+    @DeleteMapping
+    public String deleteBook(@RequestParam String isbn) {
+        return bookService.deleteBook(isbn);
     }
 }

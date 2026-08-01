@@ -1,0 +1,17 @@
+2026-08-02 01:33:41 INFO  LibraryManagementSysApplication - Starting LibraryManagementSysApplication using Java 21.0.6 with PID 81382 (/Users/jori/Downloads/SWE/Internship/LibraryManagementSys/target/classes started by jori in /Users/jori/Downloads/SWE/Internship/LibraryManagementSys)
+2026-08-02 01:33:41 INFO  LibraryManagementSysApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-02 01:33:41 INFO  TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-08-02 01:33:41 INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-08-02 01:33:41 INFO  StandardService - Starting service [Tomcat]
+2026-08-02 01:33:41 INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-08-02 01:33:41 INFO  [/] - Initializing Spring embedded WebApplicationContext
+2026-08-02 01:33:41 INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 359 ms
+2026-08-02 01:33:41 INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-08-02 01:33:41 INFO  TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-08-02 01:33:41 INFO  LibraryManagementSysApplication - Started LibraryManagementSysApplication in 0.695 seconds (process running for 1.076)
+2026-08-02 01:33:45 INFO  [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-08-02 01:33:45 INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-08-02 01:33:45 INFO  DispatcherServlet - Completed initialization in 2 ms
+2026-08-02 01:33:45 INFO  AbstractOpenApiResource - Init duration for springdoc-openapi is: 79 ms
+2026-08-02 01:33:51 ERROR BookService - Failed to delete the book because it does not exist — isbn=123
+2026-08-02 01:33:51 FATAL BookService - Database connection unavailable. Application cannot continue.
