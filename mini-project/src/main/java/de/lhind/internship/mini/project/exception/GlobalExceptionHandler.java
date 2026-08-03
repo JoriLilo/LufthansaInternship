@@ -15,30 +15,28 @@ import java.util.stream.Collectors;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-    // 500 INTERNAL SERVER ERROR - catch-all, generic message per "Best Practices" slide
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponse> handleGeneric(Exception ex, HttpServletRequest request)
-    {
+    @ExceptionHandler(org.springframework.security.authentication.LockedException.class)
+    public ResponseEntity<ErrorResponse> handleLocked(RuntimeException ex, HttpServletRequest request) {
         ErrorResponse body = ErrorResponse.builder()
-                .status (HttpStatus. INTERNAL_SERVER_ERROR. value())
-                .error(HttpStatus. INTERNAL_SERVER_ERROR.getReasonPhrase())
-                .message("An unexpected error occurred")
-                .path( request. getRequestURI ())
-                    . build();
-        return ResponseEntity. status (HttpStatus. INTERNAL_SERVER_ERROR)
-                .body (body) ;
+                .timestamp(LocalDateTime.now())
+                .status(HttpStatus.LOCKED.value())
+                .error(HttpStatus.LOCKED.getReasonPhrase())
+                .message("Account is locked due to too many failed login attempts")
+                .path(request.getRequestURI())
+                .build();
+        return ResponseEntity.status(HttpStatus.LOCKED).body(body);
     }
 
-    @ExceptionHandler(RoomNotAvailableException.class)
-    public ResponseEntity<ErrorResponse> handleRoomNotAvailable(RoomNotAvailableException ex, HttpServletRequest request) {
+    @ExceptionHandler(org.springframework.security.authentication.BadCredentialsException.class)
+    public ResponseEntity<ErrorResponse> handleBadCredentials(RuntimeException ex, HttpServletRequest request) {
         ErrorResponse body = ErrorResponse.builder()
-                .status (HttpStatus. INTERNAL_SERVER_ERROR. value())
-                .error(HttpStatus. INTERNAL_SERVER_ERROR.getReasonPhrase())
-                .message("The room is not available")
-                .path( request. getRequestURI ())
-                . build();
-        return ResponseEntity. status (HttpStatus. INTERNAL_SERVER_ERROR)
-                .body (body) ;
+                .timestamp(LocalDateTime.now())
+                .status(HttpStatus.UNAUTHORIZED.value())
+                .error(HttpStatus.UNAUTHORIZED.getReasonPhrase())
+                .message("Invalid username or password")
+                .path(request.getRequestURI())
+                .build();
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(body);
     }
 
 
